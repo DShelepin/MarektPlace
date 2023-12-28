@@ -1,0 +1,7 @@
+@mixin title($size: 30, $lineHeight: 110) {
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size + px;
+  line-height: $lineHeight * 1%;
+  color: #000000;
+}
