@@ -4,7 +4,7 @@ import styles from './AdminLayout.module.scss';
 
 export function AdminLayout() {
   return (
-    <div className={styles.content}>
+    <div className={styles.container}>
       <Sidebar />
       <Outlet />
     </div>
