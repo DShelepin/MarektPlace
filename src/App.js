@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Categories } from './pages/Categories';
+import { Products } from './pages/Products';
+import { AdminLayout } from './components/AdminLayout/AdminLayout';
+import './styles/globals.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route
+          path="/admin"
+          element={<Navigate to="/admin/categories" replace />}
+        />
+        <Route path="/admin/categories" element={<Categories />} />
+        <Route path="/admin/products" element={<Products />} />
+        <Route path="*" element={<Navigate to="/admin/categories" replace />} />
+      </Route>
+    </Routes>
   );
 }
 
