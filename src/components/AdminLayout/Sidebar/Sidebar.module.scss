@@ -2,6 +2,7 @@
 @import '../../../styles/mixins.scss';
 
 .container {
+  flex-shrink: 0;
   background-color: $tundora;
   width: 70px;
   height: 100vh;
@@ -20,7 +21,7 @@
   justify-content: center;
   border-bottom: 1px solid black;
   position: relative;
-  height: 80px;
+  height: $headerHeight;
 }
 
 .titleWrapperOpen {

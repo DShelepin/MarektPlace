@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { links } from './constans';
+import { links } from './constants';
 import { ReactComponent as ArrowIcon } from '../../../assets/icons/arrow.svg';
 import { ReactComponent as BurgerIcon } from '../../../assets/icons/burger.svg';
 import classNames from 'classnames';

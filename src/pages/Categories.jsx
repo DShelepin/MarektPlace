@@ -2,7 +2,7 @@
 export function Categories() {
   return (
     <div>
-      CategwefWEFwefWEFwefories
+      sgsgS
     </div>
   );
 }
