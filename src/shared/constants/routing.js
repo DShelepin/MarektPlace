@@ -1,12 +1,11 @@
 export const paths = {
   admin: '/admin',
-  categories: '/admin/categories',
-  products: '/admin/products',
+  adminCategories: '/admin/categories',
+  adminProducts: '/admin/products',
 };
 
 export const pathNames = {
-  [paths.categories]: 'Категории',
-  [paths.products]: 'Товары',
+  [paths.adminCategories]: 'Категории',
+  [paths.adminProducts]: 'Товары',
 };
 
-// pathNames['/admin/products']

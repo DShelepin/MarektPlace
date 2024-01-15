@@ -11,11 +11,11 @@ function App() {
       <Route path={paths.admin} element={<AdminLayout />}>
         <Route
           path={paths.admin}
-          element={<Navigate to={paths.categories} replace />}
+          element={<Navigate to={paths.adminCategories} replace />}
         />
-        <Route path={paths.categories} element={<Categories />} />
-        <Route path={paths.products} element={<Products />} />
-        <Route path="*" element={<Navigate to={paths.categories} replace />} />
+        <Route path={paths.adminCategories} element={<Categories />} />
+        <Route path={paths.adminProducts} element={<Products />} />
+        <Route path="*" element={<Navigate to={paths.adminCategories} replace />} />
       </Route>
     </Routes>
   );

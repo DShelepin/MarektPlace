@@ -5,12 +5,12 @@ import { paths } from '../../../shared/constants/routing';
 export const links = [
   {
     name: 'Категории',
-    to: paths.categories,
+    to: paths.adminCategories,
     icon: CategoriesIcon,
   },
   {
     name: 'Товары',
-    to: paths.products,
+    to: paths.adminProducts,
     icon: ProductsIcon,
   },
 ];
