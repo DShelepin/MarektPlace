@@ -13,4 +13,6 @@ export const links = [
     to: paths.adminProducts,
     icon: ProductsIcon,
   },
+  
 ];
+
