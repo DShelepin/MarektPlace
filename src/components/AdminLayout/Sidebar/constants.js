@@ -1,15 +1,16 @@
 import { ReactComponent as CategoriesIcon } from '../../../assets/icons/categories.svg';
 import { ReactComponent as ProductsIcon } from '../../../assets/icons/products.svg';
+import { paths } from '../../../shared/constants/routing';
 
 export const links = [
   {
     name: 'Категории',
-    to: '/admin/categories',
+    to: paths.categories,
     icon: CategoriesIcon,
   },
   {
     name: 'Товары',
-    to: '/admin/products',
+    to: paths.products,
     icon: ProductsIcon,
   },
 ];

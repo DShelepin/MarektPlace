@@ -3,18 +3,19 @@ import { Categories } from './pages/Categories';
 import { Products } from './pages/Products';
 import { AdminLayout } from './components/AdminLayout/AdminLayout';
 import './styles/globals.scss';
+import { paths } from './shared/constants/routing';
 
 function App() {
   return (
     <Routes>
-      <Route path="/admin" element={<AdminLayout />}>
+      <Route path={paths.admin} element={<AdminLayout />}>
         <Route
-          path="/admin"
-          element={<Navigate to="/admin/categories" replace />}
+          path={paths.admin}
+          element={<Navigate to={paths.categories} replace />}
         />
-        <Route path="/admin/categories" element={<Categories />} />
-        <Route path="/admin/products" element={<Products />} />
-        <Route path="*" element={<Navigate to="/admin/categories" replace />} />
+        <Route path={paths.categories} element={<Categories />} />
+        <Route path={paths.products} element={<Products />} />
+        <Route path="*" element={<Navigate to={paths.categories} replace />} />
       </Route>
     </Routes>
   );
