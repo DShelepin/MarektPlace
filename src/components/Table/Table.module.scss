@@ -1,0 +1,109 @@
+.table {
+  --borderColor: rgb(208, 208, 208);
+
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--borderColor);
+  border-radius: 24px;
+  box-shadow: 1px 1px 8px var(--borderColor);
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHead {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.tableHeadCell {
+  width: 100%;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--borderColor);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.tableRowCell {
+  width: 100%;
+}
+
+.tableFooter {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 20px;
+  border-top: 1px solid var(--borderColor);
+}
+
+.tableFooterRowsPerPage {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto;
+  width: max-content;
+}
+
+.selectWrapper {
+  position: relative;
+
+  &:after {
+    content: '';
+    background: url(../../assets/icons/arrow-select.svg);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    transform: translateY(-50%);
+  }
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font: inherit;
+  border: none;
+  width: max-content;
+  background: none;
+  padding-right: 15px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.tableFooterRowsCount {
+  margin-left: 30px;
+}
+
+.tableFooterArrows {
+  margin-left: 20px;
+  display: flex;
+  gap: 4px;
+}
+
+.arrowButton {
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+}

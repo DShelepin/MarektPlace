@@ -6,4 +6,12 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  scrollbar-width: auto;
+}
+
+button,
+input,
+textarea {
+  font-family: 'Montserrat', sans-serif;
 }
