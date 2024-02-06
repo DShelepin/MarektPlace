@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import styles from './Table.module.scss';
 import { rowsPerPageOptions } from './constants';
-import { ReactComponent as Arrow } from './../../assets/icons/arrow-select.svg';
 import { ReactComponent as ArrowNext } from './../../assets/icons/arrow-next.svg';
 import { ReactComponent as ArrowPrev } from './../../assets/icons/arrow-prev.svg';
 import { useState } from 'react';
@@ -41,8 +40,6 @@ export function Table({ className, columns, rows }) {
   const onNextPageButtonClick = () => setCurrentPage((prev) => prev + 1);
   const onPrevPageButtonClick = () => setCurrentPage((prev) => prev - 1);
 
-  console.log(currentPage);
-
   return (
     <div
       className={classNames(styles.table, {
@@ -78,7 +75,9 @@ export function Table({ className, columns, rows }) {
                     [column.className]: column.className,
                   })}
                 >
-                  {row[column.key]}
+                  {typeof column.renderCell === 'function'
+                    ? column.renderCell({ row })
+                    : row[column.key]}
                 </div>
               ))}
             </div>

@@ -1,9 +1,19 @@
 import { ReactComponent as DeleteIcon } from '../assets/icons/delete.svg';
 import { ReactComponent as FixIcon } from '../assets/icons/pencil.svg';
+import { ReactComponent as Cross } from '../assets/icons/cross.svg';
 import styles from './Categories.module.scss';
-import { Table } from '../components';
+import { Input, Table, Button } from '../components';
+import { useState } from 'react';
+import { buttonSizes, buttonVariants, modalModes } from '../shared';
+import Modal from '../components/Modal/Modal';
 
 export function Categories() {
+  const [modal, setModal] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState(null);
+  const [modalMode, setModalMode] = useState(modalModes.create);
+
+  console.log(currentCategory);
+
   const columns = [
     {
       key: 'name',
@@ -13,376 +23,86 @@ export function Categories() {
       key: 'actions',
       label: '',
       className: styles.tableActionsColumn,
+      renderCell: (params) => (
+        <div className={styles.actions}>
+          <FixIcon
+            className={styles.icon}
+            onClick={() => {
+              setCurrentCategory(params.row);
+              setModalMode(modalModes.edit);
+              setModal(true);
+            }}
+          />
+          <DeleteIcon className={styles.icon} />
+        </div>
+      ),
     },
   ];
 
   const rows = [
     {
+      id: 1,
       name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
     },
     {
+      id: 2,
       name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
     },
     {
+      id: 3,
       name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
     },
     {
+      id: 4,
       name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
     },
     {
+      id: 5,
       name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'wer',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'wer',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'rew',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Мебель',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Одежда',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Спорт',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Элетроника',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
-    },
-    {
-      name: 'Здоровье',
-      actions: (
-        <div className={styles.actions}>
-          <FixIcon className={styles.icon} />
-          <DeleteIcon className={styles.icon} />
-        </div>
-      ),
     },
   ];
 
   return (
-    <div>
-      <button className={styles.button}>Добавить</button>
+    <div className={styles.page}>
+      <Button
+        className={styles.button}
+        onClick={() => setModal(true)}
+        size={buttonSizes.large}
+      >
+        Добавить
+      </Button>
       <div className={styles.container}>
-        <Table className={styles.table} columns={columns} rows={rows}  />
-        {/* <h2 className={styles.title}>Название</h2> */}
-        {/* <div className={styles.content}> */}
-        {/* <div>Мебель</div>
-          <div>
-            <FixIcon />
-            <DeleteIcon />
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div>Одежда</div>
-          <div>
-            <FixIcon />
-            <DeleteIcon />
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div>Спорт</div>
-          <div>
-            <FixIcon />
-            <DeleteIcon />
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div>Электроника</div>
-          <div>
-            <FixIcon />
-            <DeleteIcon />
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div>Здоровье</div>
-          <div>
-            <FixIcon />
-            <DeleteIcon />
-          </div>
-        </div> */}
-
-        {/* <div className={styles.footerContainer}>
-          <div className={styles.footer}>
-            <div>Строк на странице: 5 </div>
-            <div>1-5 из 24</div>
-          </div>
-        </div> */}
+        <Table className={styles.table} columns={columns} rows={rows} />
       </div>
+      <Modal open={modal} onClose={() => setModal(false)}>
+        <div className={styles.modalHeader}>
+          <h2>Создание категории</h2>
+          <Cross
+            className={styles.modalCrossButton}
+            onClick={() => setModal(false)}
+          />
+        </div>
+        <form className={styles.modalForm}>
+          <div className={styles.modalInputWrapper}>
+            <label htmlFor="name">Название</label>
+            <Input id="name" />
+          </div>
+          <div className={styles.modalInputWrapper}>
+            <label htmlFor="img">Картинка(URL)</label>
+            <Input id="img" />
+          </div>
+          <div className={styles.modalButtonContainer}>
+            <Button
+              variant={buttonVariants.secondary}
+              onClick={() => setModal(false)}
+              type="button"
+            >
+              Отмена
+            </Button>
+            <Button>Создать</Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }

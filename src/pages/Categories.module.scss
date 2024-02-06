@@ -3,19 +3,14 @@
   height: calc(100vh - 220px);
 }
 
+.page {
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .button {
   margin: 20px 0 20px 50px;
-  padding: 10px 35px;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  background-color: #f97315;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-  }
 }
 
 .title {
@@ -48,7 +43,8 @@
 
 .icon {
   cursor: pointer;
-
+  position: relative;
+  display: inline-block;
   &:hover {
     opacity: 0.7;
   }
@@ -56,4 +52,45 @@
 
 .tableActionsColumn {
   width: 100px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.modalCrossButton {
+  cursor: pointer;
+}
+
+.modalAddButton {
+  border: none;
+  background: #f97315;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.modalButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalInputWrapper {
+  display: grid;
+  grid-template-columns: 180px 1fr;
 }
