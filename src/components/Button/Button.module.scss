@@ -1,0 +1,27 @@
+.button {
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.variant-primary {
+    background-color: #f97315;
+  }
+
+  &.variant-secondary {
+    background: rgb(195, 195, 195);
+  }
+
+  &.size-l {
+    padding: 10px 35px;
+    font-size: 18px;
+  }
+
+  &.size-m {
+    padding: 8px 14px;
+  }
+}

@@ -1,0 +1,33 @@
+import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
+import { ReactComponent as FixIcon } from '../../assets/icons/pencil.svg';
+import styles from './Categories.module.scss';
+
+export function getColumns({ onEditButtonClick, onDeleteButtonClick }) {
+  return [
+    {
+      key: 'name',
+      label: 'Название',
+    },
+    {
+      key: 'actions',
+      label: '',
+      className: styles.tableActionsColumn,
+      renderCell: (params) => (
+        <div className={styles.actions}>
+          <FixIcon
+            className={styles.icon}
+            onClick={() => {
+              onEditButtonClick(params);
+            }}
+          />
+          <DeleteIcon
+            className={styles.icon}
+            onClick={() => {
+              onDeleteButtonClick(params);
+            }}
+          />
+        </div>
+      ),
+    },
+  ];
+}
