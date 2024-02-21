@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  height: $headerHeight;
+  background-color: $tundora;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.content {
+  display: flex;
+}
+
+.title {
+  color: white;
+}
+
+.button {
+  font-family: 'Montserrat';
+  border: none;
+  border-radius: 8px;
+  padding: 7px 25px;
+  margin-left: 30px;
+}

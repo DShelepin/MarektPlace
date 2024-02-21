@@ -1,0 +1,70 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.container {
+  flex-shrink: 0;
+  background-color: $tundora;
+  width: 70px;
+  height: 100vh;
+  text-align: center;
+  transition: all 0.15s;
+  overflow: hidden;
+}
+
+.containerOpen {
+  width: 240px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  position: relative;
+  height: $headerHeight;
+}
+
+.titleWrapperOpen {
+  display: none;
+}
+
+.title {
+  @include title();
+  display: none;
+  color: white;
+}
+.titleOpen {
+  display: block;
+}
+
+.titleIcon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.linkWrapper {
+  list-style-type: none;
+}
+
+.link {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px 20px;
+
+  &.active {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
